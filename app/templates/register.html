@@ -26,10 +26,19 @@
                             id="password"
                             type="password"
                             class="input"
-                            placeholder="********"
+                            minlength="6"
+                            placeholder="(must be 6+ chars)"
                             required
                             />
                         </label>
+            
+                        <div class="mb-4">
+                            <label>
+                            <input type="checkbox" name="tos" value="yes" required />
+                            <span>I agree with the terms and conditions</span>
+                            </label>
+                        </div>
+            
                         <div class="mb-4">
                             <button type="submit" class="button is-success">Sign Up</button>
                         </div>
