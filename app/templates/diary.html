@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<ul>
+    {% for note in user.notes %}
+    <li>
+        <section class="section">
+            <h1 class="title">{{ note.title }}</h1>
+            <div class="img">
+                <img src="uploads/{{ note.image_file }}"
+            </div>
+            <div class="diarynote">
+                {{ note.data }}
+            </div>
+            <div class="date">
+                Added at: {{ note.date }}
+            </div>
+        </section>
+    </li>
+    {% endfor %}
+</ul>
+
+
+
+{% endblock %}

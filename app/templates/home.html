@@ -1,1 +1,61 @@
 {% extends 'base.html' %}
+{% block content %}
+
+<section class="hero is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-5">
+                    <form method="POST" enctype="multipart/form-data" class="box p-5">
+                        <div class="content" align="center">
+                        <h1>New diary note!</h1>
+                        </div>
+                        <span class="is-block mb-2">Title</span>
+                        <input 
+                        name="titlenote" 
+                        id="titlenote"
+                        class="input mb-2"
+                        required
+                        />
+                        <textarea class="textarea is-success mb-2" placeholder="Your note here, max 10000 characters" name="textnote" id="textnote"></textarea>
+                        <span class="is-block mb-2">Choose an image</span>
+                        <div id="file-js-example" class="file has-name mb-5">
+                            <label class="file-label">
+                              <input class="file-input" type="file" name="file">
+                              <span class="file-cta">
+                                <span class="file-icon">
+                                    <ion-icon name="cloud-upload-outline"></ion-icon>
+                                </span>
+                                <span class="file-label">
+                                  Choose a file…
+                                </span>
+                              </span>
+                              <span class="file-name">
+                                No file uploaded
+                              </span>
+                            </label>
+                          </div>
+                          
+                          <script>
+                            const fileInput = document.querySelector('#file-js-example input[type=file]');
+                            fileInput.onchange = () => {
+                              if (fileInput.files.length > 0) {
+                                const fileName = document.querySelector('#file-js-example .file-name');
+                                fileName.textContent = fileInput.files[0].name;
+                              }
+                            }
+                          </script>      
+                        <div class="mb-4" align="center">
+                            <button type="submit" class="button is-success">Post a note!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock %}

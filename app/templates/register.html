@@ -5,7 +5,7 @@
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">
-                <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                <div class="column is-5">
                     <form method="POST" class="box p-5">
                         <label class="is-block mb-4">
                             <span class="is-block mb-2">Email address</span>
@@ -15,7 +15,31 @@
                             name="email"
                             id="email"
                             class="input"
-                            placeholder="aponiewozik@example.com"
+                            placeholder="email@example.com"
+                            />
+                        </label>
+
+                        <label class="is-block mb-4">
+                            <span class="is-block mb-2">Fist name</span>
+                            <input
+                            required
+                            type="text"
+                            name="first_name"
+                            id="first_name"
+                            class="input"
+                            placeholder="First name"
+                            />
+                        </label>
+
+                        <label class="is-block mb-4">
+                            <span class="is-block mb-2">Last name</span>
+                            <input
+                            required
+                            type="text"
+                            name="last_name"
+                            id="last_name"
+                            class="input"
+                            placeholder="Last name"
                             />
                         </label>
             
@@ -27,7 +51,20 @@
                             type="password"
                             class="input"
                             minlength="6"
-                            placeholder="(must be 6+ chars)"
+                            placeholder="(min 6 chars)"
+                            required
+                            />
+                        </label>
+
+                        <label class="is-block mb-4">
+                            <span class="is-block mb-2">Confirm password</span>
+                            <input
+                            name="password1"
+                            id="password1"
+                            type="password"
+                            class="input"
+                            minlength="6"
+                            placeholder=""
                             required
                             />
                         </label>

@@ -1,3 +1,9 @@
 .dropdown-menu {
     width: 400px;
 }
+
+.date {
+    align-items: right;
+    font-size: small;
+
+}
