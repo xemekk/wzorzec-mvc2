@@ -1,10 +1,11 @@
 import os
-from flask import Blueprint, render_template, request, flash
+from flask import Blueprint, redirect, render_template, request, flash, url_for, jsonify
 from flask_login import login_required, current_user
 from . import db
 from .models import Note, User
+import json
 
-UPLOAD_FOLDER = 'app/uploads/'
+UPLOAD_FOLDER = 'app/static/uploads/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 views = Blueprint('views', __name__)
@@ -38,3 +39,14 @@ def home():
 def diary():
     return render_template('diary.html', user=current_user)
 
+@views.route('/delete-note', methods=['POST'])
+def delete_note():
+    note = json.loads(request.data)
+    noteId = note['noteId']
+    note = Note.query.get(noteId)
+    if note:
+        if note.user_id == current_user.id:
+            db.session.delete(note)
+            db.session.commit()
+
+    return jsonify({})

@@ -1,25 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
 
+
+{% if not user.notes %}
+<h1>You don't have any diary notes! Add one!</h1>
+{% else %}
 <ul>
     {% for note in user.notes %}
-    <li>
-        <section class="section">
-            <h1 class="title">{{ note.title }}</h1>
-            <div class="img">
-                <img src="uploads/{{ note.image_file }}"
+    <article class="media mb-4">
+        <figure class="media-left">
+          <p class="image is-64x64">
+            <img src="{{ url_for('static', filename='uploads/' + note.image_file) }}"></img>
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>{{user.first_name}} {{user.last_name}}</strong>
+              {{note.title}}
+              <br>
+              {{note.data}}
+            </p>
+          </div>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item">
+                <ion-icon name="create-outline"></ion-icon>
+              </a>
             </div>
-            <div class="diarynote">
-                {{ note.data }}
-            </div>
-            <div class="date">
-                Added at: {{ note.date }}
-            </div>
-        </section>
-    </li>
+          </nav>
+        </div>
+        <div class="media-right">
+          <button class="delete" onClick="deleteNote({{ note.id }})"></button>
+        </div>
+      </article>
     {% endfor %}
 </ul>
-
+{% endif %}
 
 
 {% endblock %}
