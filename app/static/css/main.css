@@ -2,6 +2,10 @@
     width: 400px;
 }
 
+.block {
+    margin-top: 10px;
+}
+
 .date {
     align-items: right;
     font-size: small;
@@ -9,6 +13,6 @@
 }
 
 .img {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 128px;
+    max-height: 128px;
 }

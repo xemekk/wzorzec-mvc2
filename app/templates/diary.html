@@ -7,33 +7,36 @@
 {% else %}
 <ul>
     {% for note in user.notes %}
-    <article class="media mb-4">
-        <figure class="media-left">
-          <p class="image is-64x64">
-            <img src="{{ url_for('static', filename='uploads/' + note.image_file) }}"></img>
-          </p>
-        </figure>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <strong>{{user.first_name}} {{user.last_name}}</strong>
-              {{note.title}}
-              <br>
-              {{note.data}}
-            </p>
-          </div>
-          <nav class="level is-mobile">
-            <div class="level-left">
-              <a class="level-item">
-                <ion-icon name="create-outline"></ion-icon>
-              </a>
+    <div class="block">
+        <article class="media mb-4">
+            <figure class="media">
+                <p class="image is-128x128">
+                    <img src="{{ url_for('static', filename='uploads/' + note.image_file) }}" max-height="128"></img>
+                </p>
+            </figure>
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                    <strong>{{user.first_name}} {{user.last_name}}</strong>
+                    {{note.title}}
+                    <br>
+                    {{note.data}}
+                    </p>
+                </div>
+                <nav class="level is-mobile">
+                    <div class="level-left">
+                    <a class="level-item">
+                        <ion-icon name="create-outline"></ion-icon>
+                    </a>
+                    </div>
+                </nav>
+                </div>
+            <div class="media-right">
+            <button class="delete" onClick="deleteNote({{ note.id }})"></button>
             </div>
-          </nav>
-        </div>
-        <div class="media-right">
-          <button class="delete" onClick="deleteNote({{ note.id }})"></button>
-        </div>
-      </article>
+        </article>
+    </div>
+    
     {% endfor %}
 </ul>
 {% endif %}
