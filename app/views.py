@@ -50,3 +50,12 @@ def delete_note():
             db.session.commit()
 
     return jsonify({})
+
+@views.route('/admin')
+@login_required
+def admin():
+    user = current_user
+    if not user.is_admin:
+        flash("You are not an admin!!")
+        return redirect(url_for('views.home'))
+    return render_template('admin/index.html', user=current_user)
