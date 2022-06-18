@@ -16,3 +16,7 @@
     max-width: 128px;
     max-height: 128px;
 }
+
+.mb-4 {
+    display: inline-block;
+}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="hero is-medium">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="colum is-5">
+                    <form method="POST" class="box p-5">
+                        <div class="content" align="center"
+                        <h1>Edit your profile</h1>
+                        <input 
+                        name="userFirst" 
+                        id="userFirst"
+                        class="input mb-2"
+                        placeholder="Current: {{user.first_name}}"
+                        />
+                        <input 
+                        name="userLast" 
+                        id="userLast"
+                        class="input mb-2"
+                        placeholder="Current: {{user.last_name}}"
+                        />
+                        <button type="submit" class="button is-success" id="close">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

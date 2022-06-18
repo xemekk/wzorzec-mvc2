@@ -1,4 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<section class="hero is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-5">
+                    <div class="content" align="center">
+                    <h1>Welcome to your profile!</h1>
+                    </div>
+                    <div class="box">
+                    Your name: {{user.first_name}}
+                    <br>
+                    Your last name: {{user.last_name}}
+                    <br>
+                    Your email: {{user.email}}
+                    <br>
+                    Login counts: {{user.logins_count}}
+                    </div>
+                    <div class="mb-4">
+                        <a href="{{url_for('views.edit_profile')}}" class="button is-success">Edit your profile</a>
+                    </div>
+                    <div class="mb-4">
+                        <a href="{{url_for('views.change_password')}}" class="button is-success">Change your password</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

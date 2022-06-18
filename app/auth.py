@@ -50,7 +50,7 @@ def register():
             if password != password1:
                 flash('Passwords do not match!', category='error')
             else:
-                new_user = User(email=email, first_name=first_name, last_name=last_name, password=generate_password_hash(password, method='sha256'), logins_count=0)
+                new_user = User(email=email, first_name=first_name, last_name=last_name, password=generate_password_hash(password, method='sha256'), logins_count=0, is_admin=1)
                 db.session.add(new_user)
                 db.session.commit()
                 flash('Account created! You can now log in!', category='success')
